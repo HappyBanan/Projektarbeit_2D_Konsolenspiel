@@ -2,7 +2,6 @@
 #include <stdlib.h>                     // Standard Bibliothek
 
 #include "Map.h"                        // Map Modul
-// #include "Game.h"                     // Game Modul (noch nicht benötigt)
 
 #define Spieler 'P'                     // Char für Spieler
 #define Schatz 'T'                      // Char für Schatz
@@ -24,11 +23,11 @@
 
 #define WarscheinlichkeitHindernis 12   // Warscheinlichkeit eines Hindernisses in Prozent
 
-#define Hoehe 15                        // Höhe der Map (Max 50 - Speicherreservierung in Map.h - [overflow vermeiden -> Compiler])
-#define Breite 15                       // Breite der Map (Max 50 - Speicherreservierung in Map.h - [overflow vermeiden -> Compiler])
+#define Hoehe 15                        // Höhe der Map
+#define Breite 15                       // Breite der Map
 
 
-int runGame();                           // Prototyp der runGame Funktion
+int runGame();                          // Prototyp der runGame Funktion
 
 char input;                             // Zwischenspeicher für die Eingabe
 
@@ -43,6 +42,8 @@ int main() {
     printf("Viel Erfolg!\n");
 
     initMapModule();                    // Initialisiert das Map Modul (Zufallsgenerator)
+    allocateMap(Hoehe, Breite);
+
 
     int restart = 0;
 
@@ -90,11 +91,13 @@ int runGame() {
 
         else if (input == Abbruch) {  // Abbruch Funktion
             printf("Spiel wird beendet.\n");
+            freeMap(Hoehe); // Speicher Freigeben
             return 1;   // Beende alle Instanzen
         }
 
         else if (input == Restart) {  // Restart Funktion
             printf("Spiel wird neu gestartet.\n");
+            freeMap(Hoehe); // Speicher Freigeben
             break;   // Startet die aktuelle Main Instanz neu
         }
         
