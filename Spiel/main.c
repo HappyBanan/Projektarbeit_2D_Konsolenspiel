@@ -33,7 +33,7 @@ char input;                             // Zwischenspeicher für die Eingabe
 
 
 int main() {
-
+// Startnachricht
     printf("Willkommen zum Schatzsuchspiel!\n");
     printf("Ziel: Finde den Schatz '%c' auf der Karte.\n", Schatz);
     printf("Steuere den Spieler '%c' durch Eingabe von '%c/%c' (Hoch), '%c/%c' (Links), '%c/%c' (Runter), '%c/%c' (Rechts).\n", Spieler, Hoch1, Hoch2, Links1, Links2, Runter1, Runter2, Rechts1, Rechts2);
@@ -63,10 +63,10 @@ int runGame() {
     createMap(Hoehe, Breite, Hindernis, Freiflaeche, WarscheinlichkeitHindernis); 
 
     Position player = placePlayer(Hoehe, Breite, Freiflaeche, Spieler); // Spieler plazieren und Position speichern
-        printf("Spieler ist auf Position %d - %d.\n", player.x, player.y);
+        printf("Spieler ist auf Position %d - %d.\n", player.x+1, player.y+1);
 
     Position schatz = placeSchatz(Hoehe, Breite, Hindernis, Schatz, Spieler); // Schatz plazieren und Position speichern
-        printf("Schatz ist auf Position %d - %d.\n", schatz.x, schatz.y);
+        printf("Schatz ist auf Position %d - %d.\n", schatz.x+1, schatz.y+1);
 
     while (1) {
 
