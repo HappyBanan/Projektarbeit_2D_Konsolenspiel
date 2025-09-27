@@ -51,7 +51,10 @@ int main() {
             restart = runGame();
             if (restart != 0) break;
         }
-        return 0;
+    
+    freeMap(Hoehe); // Speicher Freigeben - Bei Programmende
+    
+    return 0;
 }
 
 
@@ -91,13 +94,11 @@ int runGame() {
 
         else if (input == Abbruch) {  // Abbruch Funktion
             printf("Spiel wird beendet.\n");
-            freeMap(Hoehe); // Speicher Freigeben
             return 1;   // Beende alle Instanzen
         }
 
         else if (input == Restart) {  // Restart Funktion
             printf("Spiel wird neu gestartet.\n");
-            freeMap(Hoehe); // Speicher Freigeben
             break;   // Startet die aktuelle Main Instanz neu
         }
         
@@ -107,22 +108,23 @@ int runGame() {
             continue;
         }
 
+// 
         switch (checkMap(Hoehe, Breite, player.x, player.y, newPos.x, newPos.y, Hindernis, Freiflaeche, Spieler, Schatz)) {
             case 0: // Fehler Rand
                 printf("Ungültiger Zug! Rand.\n");
-                continue;
+                continue;                                   // Weiter
             case 1: // Fehler Hinderniss
                 printf("Ungültiger Zug! Hindernis. < %c >\n", Hindernis);
-                continue;
+                continue;                                   // Weiter
             case 2: // Gewonnen
                 printMap(Hoehe, Breite);                    // Karte ausgeben
                 printf("Herzlichen Glückwunsch! Du hast den Schatz gefunden!\n");
-                return 1;
+                return 1;                                   // Beendet alle Instanzen
             case 3: // Bewegung erfolgreich
                 printMap(Hoehe, Breite);                    // Karte ausgeben
                 player.x = newPos.x;                        // Update Spieler Position
                 player.y = newPos.y;                        // Update Spieler Position
-                continue;
+                continue;                                   // Weiter
         }
     }
     return 0;
