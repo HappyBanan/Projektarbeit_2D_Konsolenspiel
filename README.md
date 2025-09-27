@@ -17,7 +17,7 @@ make                                // Konsoleneingabe für Gameerstellung / Neu
 ./labyrinth                         // Konsoleneingabe für Gamestart
 ```
 
-## Steuerung && Anzeige (Konfigurierbar [main.c (6-22)])
+## Steuerung && Anzeige (Konfigurierbar [main.c (6-27)])
 - **W / w** : hoch
 - **A / a** : links
 - **S / s** : runter
@@ -29,3 +29,9 @@ make                                // Konsoleneingabe für Gameerstellung / Neu
 - **T**     : Schatz
 - **O**     : Hindernis
 - **.**     : Freifläche
+
+- **12**    : Hindernis_Warscheinlichkeit_in_%
+
+- **15**    : Map_Breite
+- **15**    : Map_Höhe
+
