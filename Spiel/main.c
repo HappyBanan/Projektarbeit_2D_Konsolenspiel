@@ -42,19 +42,19 @@ int main() {
     printf("Viel Erfolg!\n");
 
     initMapModule();                    // Initialisiert das Map Modul (Zufallsgenerator)
-    allocateMap(Hoehe, Breite);
+    allocateMap(Hoehe, Breite);         // Map-Speicher Reservieren bei Programmstart
 
 
     int restart = 0;
 
-        while (1) {                     // Spiel ausführen bis Restart
-            restart = runGame();
-            if (restart != 0) break;
+        while (1) {                     // Spiel ausführen solange(1)
+            restart = runGame();        // runGame Ausführen und Return abwarten
+            if (restart != 0) break;    // Restarten bei Return(0)
         }
     
-    freeMap(Hoehe); // Speicher Freigeben - Bei Programmende
+    freeMap(Hoehe);                     // Speicher Freigeben - Bei Programmende
     
-    return 0;
+    return 0;                           // Alle Instanzen beenden
 }
 
 
@@ -87,9 +87,9 @@ int runGame() {
         Position newPos = player;
 
         // Eingabe verarbeiten
-        if (input == Hoch1 || input == Hoch2 )          newPos.x--;
-        else if (input == Runter1 || input == Runter2 ) newPos.x++;
-        else if (input == Links1 || input == Links2 )   newPos.y--;
+        if      (input == Hoch1   || input == Hoch2  )  newPos.x--;
+        else if (input == Runter1 || input == Runter2)  newPos.x++;
+        else if (input == Links1  || input == Links2 )  newPos.y--;
         else if (input == Rechts1 || input == Rechts2)  newPos.y++;
 
         else if (input == Abbruch) {  // Abbruch Funktion
