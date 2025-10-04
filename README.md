@@ -54,7 +54,7 @@ Das Spiel wurde im Rahmen der **Praxisarbeit Programmiertechnik A & B (HF Elektr
 ```
 ## Lizenz
 
-Dieses Projekt wurde im Rahmen der HF Elektrotechnik erstellt und darf zu Lernzwecken verwendet werden.
+Dieses Projekt wurde im Rahmen der HF Elektrotechnik erstellt und darf mit Nahmensnennung frei verwendet werden.
 
 ## Voraussetzungen
 - GCC (C11)
