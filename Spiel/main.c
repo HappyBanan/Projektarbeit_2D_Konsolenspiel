@@ -107,7 +107,7 @@ int runGame() {
             continue;
         }
 
-// 
+        // Switch für die Reaktion auf die Bewegung 
         switch (checkMap(Hoehe, Breite, player.x, player.y, newPos.x, newPos.y, Hindernis, Freiflaeche, Spieler, Schatz)) {
             case 0: // Fehler Rand
                 printf("\nUngültiger Zug! Rand. \n");
