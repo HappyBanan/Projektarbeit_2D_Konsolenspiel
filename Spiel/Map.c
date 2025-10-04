@@ -109,17 +109,17 @@ void updateMap(int Spieler_alt_Hoehe, int Spieler_alt_Breite, int Spieler_neu_Ho
 // Kontrolliere die Bewegung des Spielers
 int checkMap(int Hoehe, int Breite, int Spieler_alt_Hoehe, int Spieler_alt_Breite, int Spieler_neu_Hoehe, int Spieler_neu_Breite, char Hindernis, char Freiflaeche, char Spieler, char Schatz) {
     if (Spieler_neu_Hoehe < 0 || Spieler_neu_Hoehe >= Hoehe || Spieler_neu_Breite < 0 || Spieler_neu_Breite >= Breite) {                   // Ausserhalb der Map?
-        return 0;                                                       // 0 == Bewegung nicht möglich
+        return 0;                                                       // 0 == Bewegung nicht möglich Ausserhalb
     }
     else if (map[Spieler_neu_Hoehe][Spieler_neu_Breite] == Hindernis) {  // Auf Hindernis?
-        return 1;                                                       // 1 == Bewegung nicht möglich
+        return 1;                                                       // 1 == Bewegung nicht möglich Hindernis
     }
     else if (map[Spieler_neu_Hoehe][Spieler_neu_Breite] == Schatz) {     // Auf Schatz? -> Map updaten
         updateMap( Spieler_alt_Hoehe, Spieler_alt_Breite, Spieler_neu_Hoehe, Spieler_neu_Breite, Freiflaeche, Spieler);
-        return 2;                                                       // 1 == Spiel gewonnen
+        return 2;                                                       // 2 == Spiel gewonnen
     } 
     else {                                                              // Kein Problem? -> Map updaten
         updateMap( Spieler_alt_Hoehe, Spieler_alt_Breite, Spieler_neu_Hoehe, Spieler_neu_Breite, Freiflaeche, Spieler);
-        return 3;                                                       // 2 == Bewegung erfolgreich
+        return 3;                                                       // 3 == Bewegung erfolgreich
     }
 }
