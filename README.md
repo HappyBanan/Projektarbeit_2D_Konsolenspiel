@@ -67,6 +67,7 @@ make                                // Konsoleneingabe für Gameerstellung / Neu
 
 ## Ausführen
 ```sh
+cd Spiel                            // Ordner öffnen
 ./labyrinth                         // Konsoleneingabe für Gamestart
 ```
 
